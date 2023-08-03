@@ -48,7 +48,7 @@ const Navbar = () => {
             className={scroll ? "header active" : "header"}>
             <div className="Nav_container">
                 <div className="logo">
-                    <a href={`#${navLinks.at(0)}`}><h2>Parkaas<HiOutlineLightBulb /></h2></a>
+                    <a href="https://parkaas.vercel.app"><h2>Parkaas<HiOutlineLightBulb /></h2></a>
                 </div>
                 <div className="shot_description">
                     Ignite. <span> Explore. </span> Embrace.
@@ -75,7 +75,7 @@ const Navbar = () => {
                         return (
                             <div>
                                 <div className='my-pic'>
-                                    <img src={me} />
+                                    <img src={me} alt="amalprakash5" />
                                 </div>
                                 <li key={index}>
                                     <a href="https://amalprakash.vercel.app" onClick={() => setToggle(false)}>{navlink}</a>
