@@ -1,0 +1,53 @@
+.paginate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+
+
+    .page-item {
+        display: inline-block;
+        cursor: pointer;
+        text-decoration: none;
+        user-select: none;
+
+        svg {
+            color: #b2b2b2;
+            vertical-align: middle;
+            font-size: 1.1rem;
+        }
+
+        span {
+            color: #b2b2b2;
+        }
+
+        &:hover {
+
+            svg,
+            span {
+                color: #8c12f0;
+            }
+
+        }
+
+    }
+
+    .page-text {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        user-select: none;
+
+        .page-number {
+            display: inline-block;
+            color: #b2b2b2;
+        }
+
+        @media screen and (max-width: 360px) {
+            display: none;
+        }
+    }
+}

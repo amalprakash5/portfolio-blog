@@ -1,0 +1,193 @@
+.blog-page {
+    margin-right: 4%;
+    margin-left: 4%;
+
+    .intro {
+        color: #8acd8b;
+        font-size: 1em;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .featuredPosts {
+        margin-bottom: 2rem;
+        color: #fff;
+
+        h4 {
+            color: #fff;
+            border-left: solid;
+            padding-left: 10px;
+            border-left-color: #8c12f0;
+        }
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+
+        @media screen and (max-width: 800px) {
+            flex-direction: column;
+            gap: 0.5rem;
+
+            select {
+                background-color: #131212;
+                color: #fff;
+                padding: 0.65rem 1rem;
+                font-size: 0.85rem;
+                text-transform: capitalize;
+                cursor: pointer;
+                border: none;
+                font-family: "Poppins";
+                border-bottom: solid #8c12f0;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            option {
+                background-color: #131212;
+                color: #fff;
+                padding: 0.65rem 1rem;
+                font-size: 0.85rem;
+                text-transform: capitalize;
+            }
+        }
+
+        button {
+            border: none;
+            color: #fff;
+            background: #131212;
+            padding: 0.65rem 1rem;
+            font-size: 0.85rem;
+            text-transform: capitalize;
+            cursor: pointer;
+            border: none;
+            font-family: "Poppins";
+
+            &.active {
+                border-bottom: solid #8c12f0;
+                color: #fff;
+            }
+        }
+    }
+
+    .content {
+        margin-top: 1.5rem;
+
+        .blogs {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-bottom: 3rem;
+
+            @media screen and (max-width: 1000px) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            @media screen and (max-width: 600px) {
+                grid-template-columns: auto;
+            }
+
+            .description {
+                height: 225px;
+                padding: 10px;
+                border-radius: 10px;
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 0.5rem;
+                border: solid #3b3939;
+
+                @media screen and (max-width: 800px) {
+                    height: auto;
+                    flex-direction: column;
+                    padding: 1rem;
+                    border: none;
+                }
+
+                .blog_img {
+                    height: 200px;
+                    border-radius: 5px;
+                    padding: 5px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        border-radius: 10px;
+                    }
+                }
+
+                .blog_details {
+                    padding: 0.3rem;
+                    margin-left: 1rem;
+                    width: 100%;
+                    flex-direction: row;
+                    color: #fff;
+                    position: relative;
+
+                    @media screen and (max-width: 800px) {
+                        margin-left: 0;
+                        padding: 0;
+                        position: static;
+                    }
+
+                    .link {
+                        text-decoration: none;
+
+                        h4 {
+                            color: #fff;
+                            text-decoration: none;
+                            margin-bottom: 0.5rem;
+                        }
+                    }
+
+                    .brief-blog {
+                        overflow-y: hidden;
+
+                        p {
+                            font-size: 0.7rem;
+                            text-align: justify;
+                            text-justify: inter-word;
+                            overflow: hidden;
+                        }
+                    }
+
+                    span {
+                        position: absolute;
+                        bottom: 0.8rem;
+                        font-size: 0.675rem;
+                        display: flex;
+                        flex-direction: row;
+                        font-style: italic;
+
+                        .arrow-link {
+                            text-decoration: none;
+                            color: #fff;
+
+                            .arrow {
+                                font-size: 1.2rem;
+                                margin-left: 10px;
+                            }
+                        }
+
+                        @media screen and (max-width: 800px) {
+                            position: static;
+                            margin-top: 0.5rem;
+                            font-size: 0.75rem;
+                            display: block;
+
+                            .arrow {
+                                margin-left: 5px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
