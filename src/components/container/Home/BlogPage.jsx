@@ -3,13 +3,19 @@ import "./BlogPage.scss";
 import { urlFor, client } from "../../../client";
 import { useParams } from 'react-router-dom';
 import { format } from 'date-fns';
+import { LoadingLottie } from '../../../Data';
+import { ErrorLottie } from '../../../Data';
 import Prism from 'prismjs';
 
 const BlogPage = () => {
     const { slug } = useParams();
     const [blogData, setBlogData] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(false);
 
     useEffect(() => {
+        setIsLoading(true);
+        setError(false);
         const query = `*[_type == "post" && slug.current == "${slug}"]{
       title,
       slug,
@@ -27,9 +33,18 @@ const BlogPage = () => {
         client
             .fetch(query)
             .then((data) => {
-                setBlogData(data[0]);
+                if (data.length === 0) {
+                    setError(true);
+                } else {
+                    setBlogData(data[0]);
+                }
             })
-            .catch(console.error);
+            .catch(console.error)
+            .finally(() => {
+                setTimeout(() => {
+                    setIsLoading(false);
+                }, 3000);
+            });
     }, [slug]);
 
     useEffect(() => {
@@ -39,12 +54,6 @@ const BlogPage = () => {
             Prism.highlightAll();
         }
     }, [blogData]);
-
-    if (!blogData) {
-        return <div>Loading...</div>;
-    }
-
-    const publishedAtDate = blogData.publishedAt ? new Date(blogData.publishedAt) : null;
 
     const renderBlockContent = (blocks) => {
         return blocks.map((block, index) => {
@@ -106,7 +115,6 @@ const BlogPage = () => {
                         </p>
                     );
 
-
                 case 'image':
                     return (
                         <div className='block-content-image'>
@@ -139,17 +147,31 @@ const BlogPage = () => {
     return (
         <div className="container" id="blogpage">
             <div className="blog">
-                <div className="blog_header">
-                    <h2>{blogData.title}</h2>
-                    {blogData.author && publishedAtDate && (
-                        <span className='author_details'>
-                            By {blogData.author} &middot; {format(publishedAtDate, 'dd MMMM yyyy')}{' '}
-                        </span>
-                    )}
-                </div>
-                <div className='blog_content'>
-                    {blogData.body && renderBlockContent(blogData.body)}
-                </div>
+                {isLoading && !error && (
+                    <div className="loading">
+                        <LoadingLottie />
+                    </div>
+                )}
+                {error && (
+                    <div className="error">
+                        <ErrorLottie />
+                    </div>
+                )}
+                {!isLoading && !error && blogData && (
+                    <div>
+                        <div className="blog_header">
+                            <h2>{blogData.title}</h2>
+                            {blogData.author && blogData.publishedAt && (
+                                <span className='author_details'>
+                                    By {blogData.author} &middot; {format(new Date(blogData.publishedAt), 'dd MMMM yyyy')}{' '}
+                                </span>
+                            )}
+                        </div>
+                        <div className='blog_content'>
+                            {blogData.body && renderBlockContent(blogData.body)}
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );
