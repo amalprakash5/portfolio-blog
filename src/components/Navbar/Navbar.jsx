@@ -50,7 +50,7 @@ const Navbar = () => {
                 <div className="logo">
                     <a href="https://parkaas.vercel.app"><h2>Parkaas<HiOutlineLightBulb /></h2></a>
                 </div>
-                <div className="shot_description">
+                <div className="short_description">
                     Ignite. <span> Explore. </span> Embrace.
                 </div>
                 <div className="about" >

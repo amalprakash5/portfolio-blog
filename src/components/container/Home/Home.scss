@@ -93,99 +93,106 @@
                 grid-template-columns: auto;
             }
 
-            .description {
-                height: 225px;
-                padding: 10px;
-                border-radius: 10px;
-                display: flex;
-                flex-direction: row;
-                margin-bottom: 0.5rem;
-                border: solid #3b3939;
+            .link {
+                text-decoration: none;
 
-                @media screen and (max-width: 800px) {
-                    height: auto;
-                    flex-direction: column;
-                    padding: 1rem;
-                    border: none;
-                }
-
-                .blog_img {
-                    height: 200px;
-                    border-radius: 5px;
-                    padding: 5px;
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                        border-radius: 10px;
-                    }
-                }
-
-                .blog_details {
-                    padding: 0.3rem;
-                    margin-left: 1rem;
-                    width: 100%;
+                .description {
+                    height: 225px;
+                    padding: 10px;
+                    border-radius: 10px;
+                    display: flex;
                     flex-direction: row;
-                    color: #fff;
-                    position: relative;
+                    margin-bottom: 0.5rem;
+                    border: solid #3b3939;
 
                     @media screen and (max-width: 800px) {
-                        margin-left: 0;
-                        padding: 0;
-                        position: static;
+                        height: auto;
+                        flex-direction: column;
+                        padding: 1rem;
+                        border: none;
                     }
 
-                    .link {
-                        text-decoration: none;
+                    .blog_img {
+                        height: 200px;
+                        border-radius: 5px;
+                        padding: 5px;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            border-radius: 10px;
+                        }
+                    }
+
+                    .blog_details {
+                        padding: 0.3rem;
+                        margin-left: 1rem;
+                        width: 100%;
+                        flex-direction: row;
+                        color: #fff;
+                        position: relative;
+
+                        @media screen and (max-width: 800px) {
+                            margin-left: 0;
+                            padding: 0;
+                            position: static;
+                        }
+
 
                         h4 {
                             color: #fff;
                             text-decoration: none;
                             margin-bottom: 0.5rem;
                         }
-                    }
 
-                    .brief-blog {
-                        overflow-y: hidden;
 
-                        p {
-                            font-size: 0.7rem;
-                            text-align: justify;
-                            text-justify: inter-word;
-                            overflow: hidden;
-                        }
-                    }
+                        .brief-blog {
+                            overflow-y: hidden;
 
-                    span {
-                        position: absolute;
-                        bottom: 0.8rem;
-                        font-size: 0.675rem;
-                        display: flex;
-                        flex-direction: row;
-                        font-style: italic;
-
-                        .arrow-link {
-                            text-decoration: none;
-                            color: #fff;
-
-                            .arrow {
-                                font-size: 1.2rem;
-                                margin-left: 10px;
+                            p {
+                                font-size: 0.7rem;
+                                text-align: justify;
+                                text-justify: inter-word;
+                                overflow: hidden;
                             }
                         }
 
-                        @media screen and (max-width: 800px) {
-                            position: static;
-                            margin-top: 0.5rem;
-                            font-size: 0.75rem;
-                            display: block;
+                        span {
+                            position: absolute;
+                            bottom: 0.8rem;
+                            font-size: 0.675rem;
+                            display: flex;
+                            flex-direction: row;
+                            font-style: italic;
 
-                            .arrow {
-                                margin-left: 5px;
+                            .arrow-link {
+                                text-decoration: none;
+                                color: #fff;
+
+                                .arrow {
+                                    font-size: 1.2rem;
+                                    margin-left: 10px;
+                                }
+                            }
+
+                            @media screen and (max-width: 800px) {
+                                position: static;
+                                margin-top: 0.5rem;
+                                font-size: 0.75rem;
+                                display: block;
+
+                                .arrow {
+                                    margin-left: 5px;
+                                }
                             }
                         }
                     }
+                }
+
+                .description:hover {
+                    transform: scale(1.01);
+                    border: solid #8c12f0;
                 }
             }
         }

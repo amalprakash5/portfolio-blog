@@ -45,10 +45,11 @@
         }
     }
 
-    .shot_description {
+    .short_description {
         color: #fff;
         display: flex;
         flex-direction: row;
+        padding-right: 3rem;
 
         span {
             color: #8c12f0;

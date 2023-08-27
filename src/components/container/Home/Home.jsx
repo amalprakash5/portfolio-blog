@@ -97,13 +97,13 @@ const Home = () => {
         <TypeAnimation
           className="intro"
           sequence={[
-            'I write here about the moments that have shaped me.',
+            'I write here about my experiences.',
             1000,
-            'I write here about the dynamic world of tech and dev.',
+            'I write here about evolving technologies.',
             1000,
-            'I write here about the enchanting realms of travel.',
+            'I write here about my voyages.',
             1000,
-            "I write here about the tapestry of life's wonders.",
+            "I express my thoughts here.",
             1000,
           ]}
           wrapper="span"
@@ -143,36 +143,35 @@ const Home = () => {
             {filterPost
               .slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage)
               .map((work, index) => (
-                <div className="description" key={index}>
-                  <div className="blog_img">
-                    <img src={urlFor(work.mainImage.asset).url()} alt={work.mainImage.alt} />
-                  </div>
-                  <div className="blog_details">
-                    <Link to={`/blog/${work.slug.current}`} className="link">
+                <Link to={`/blog/${work.slug.current}`} className="link">
+                  <div className="description" key={index}>
+                    <div className="blog_img">
+                      <img src={urlFor(work.mainImage.asset).url()} alt={work.mainImage.alt} />
+                    </div>
+                    <div className="blog_details">
                       <h4>{work.title}</h4>
-                    </Link>
-                    {work.body.map((child, childIndex) => {
-                      const combinedText = child.children
-                        ? child.children.map((textChild) => textChild.text).join(' ')
-                        : '';
-                      return (
-                        <div className="brief-blog">
-                          <p key={childIndex}>{`${combinedText.substring(
-                            0,
-                            substringLength
-                          )} . . .`}</p>
+                      {work.body.map((child, childIndex) => {
+                        const combinedText = child.children
+                          ? child.children.map((textChild) => textChild.text).join(' ')
+                          : '';
+                        return (
+                          <div className="brief-blog">
+                            <p key={childIndex}>{`${combinedText.substring(
+                              0,
+                              substringLength
+                            )} . . .`}</p>
+                          </div>
+                        );
+                      })[0]}
+                      <span>
+                        By {work.author} &middot;{' '}{format(new Date(work.publishedAt), 'dd MMMM yyyy')}
+                        <div className="arrow-link">
+                          <BsArrowRight className="arrow" />
                         </div>
-                      );
-                    })[0]}
-                    <span>
-                      By {work.author} &middot;{' '}
-                      {format(new Date(work.publishedAt), 'dd MMMM yyyy')}
-                      <Link to={`/blog/${work.slug.current}`} className="arrow-link">
-                        <BsArrowRight className="arrow" />
-                      </Link>
-                    </span>
+                      </span>
+                    </div>
                   </div>
-                </div>
+                </Link>
               ))}
           </div>
           <Pagination
