@@ -180,7 +180,8 @@
                                 position: static;
                                 margin-top: 0.5rem;
                                 font-size: 0.75rem;
-                                display: block;
+                                display: flex;
+                                flex-direction: row;
 
                                 .arrow {
                                     margin-left: 5px;
