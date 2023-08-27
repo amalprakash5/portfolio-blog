@@ -156,10 +156,7 @@ const Home = () => {
                           : '';
                         return (
                           <div className="brief-blog">
-                            <p key={childIndex}>{`${combinedText.substring(
-                              0,
-                              substringLength
-                            )} . . .`}</p>
+                            <p key={childIndex}>{`${combinedText.substring(0, substringLength)} . . .`}</p>
                           </div>
                         );
                       })[0]}
